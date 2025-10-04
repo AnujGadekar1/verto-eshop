@@ -183,6 +183,26 @@ Depicts React components (CartContext, APIService) and Spring modules (Controlle
 
 > 📁 Diagrams are included in `/diagrams/` folder.
 
+
+### Preview Screenshot:
+
+### 1.
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/0f91ed25-f1f3-497e-9c4d-38d8a37edd77" />
+
+### 2.
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/5dfe1ec7-1f02-4486-92bb-1b731c55cfec" />
+
+### 3.
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/14524c23-3f8c-42de-8d44-31b9974583fd" />
+
+### 4.
+<img width="1368" height="139" alt="image" src="https://github.com/user-attachments/assets/63565b23-bfd3-405d-8f38-2388ebd3ea24" />
+
+### 5.
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/28943863-7e95-4469-91c9-fc4c54327164" />
+
+
+
 ---
 
 ## 🌍 8. Deployment & Scaling (Beyond the Challenge)
