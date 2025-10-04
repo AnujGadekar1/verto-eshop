@@ -54,6 +54,13 @@ The system demonstrates a complete e-commerce flow:
 
 ---
 
+## ## 🧰 Tech Stack
+- **Frontend:** React, TypeScript, Vite, Context API, Toast System
+- **Backend:** Spring Boot (Java 17), Maven, REST APIs
+- **Testing:** JUnit 5, MockMvc
+- **Tools:** VS Code, Postman
+
+
 ## 🛠️ 3. Setup Instructions (Run Locally)
 
 ### 🧩 Prerequisites
