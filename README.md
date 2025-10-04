@@ -7,7 +7,7 @@ This project was developed as part of the **Verto ASE Coding Challenge**, focusi
 
 ---
 
-## 🚀 1. Project Overview
+##  1. Project Overview
 
 The system demonstrates a complete e-commerce flow:
 
@@ -17,16 +17,16 @@ The system demonstrates a complete e-commerce flow:
 - Simulating checkout with an API call to the backend
 - Logging the order on the server with total calculation and validation
 
-### 🧩 Architecture Overview
+###  Architecture Overview
 - **Backend (Spring Boot)** — Handles product listing, checkout validation, and order logging.  
 - **Frontend (React)** — Manages cart UI, state, and checkout simulation.  
 - **Testing (JUnit)** — Validates business logic and API endpoints.
 
 ---
 
-## 🧩 2. Features Implemented
+##  2. Features Implemented
 
-### 🖥️ Frontend (React + TypeScript)
+### 💻 Frontend (React + TypeScript)
 - Product grid fetching data from backend `/api/products`
 - Add-to-cart functionality with quantity tracking
 - Cart overlay with:
@@ -45,7 +45,7 @@ The system demonstrates a complete e-commerce flow:
 - Structured logging for orders  
 - Unit + integration tests for service and controller layers
 
-### 🧠 Bonus Features
+###  Bonus Features
 - Quantity modification directly in the cart  
 - Persistent cart across page reloads  
 - Real product images (Unsplash/Walmart CDN)  
@@ -54,8 +54,8 @@ The system demonstrates a complete e-commerce flow:
 
 ---
 
-## ## 🧰 Tech Stack
-- **Frontend:** React, TypeScript, Vite, Context API, Toast System
+## ##  Tech Stack
+- **Frotend:** React, TypeScript, Vite, Context API, Toast System
 - **Backend:** Spring Boot (Java 17), Maven, REST APIs
 - **Testing:** JUnit 5, MockMvc
 - **Tools:** VS Code, Postman
@@ -63,14 +63,14 @@ The system demonstrates a complete e-commerce flow:
 
 ## 🛠️ 3. Setup Instructions (Run Locally)
 
-### 🧩 Prerequisites
+### Prerequisites
 - **Java 17+**
 - **Node.js 18+**
 - **Maven 3.9+**
 
 ---
 
-### 🧱 Backend Setup (Spring Boot)
+###  Backend Setup (Spring Boot)
 
 ```bash
 # Navigate to backend folder
@@ -107,7 +107,7 @@ Frontend runs at:
 
 ---
 
-## 🧪 4. Running Test Cases
+##  4. Running Test Cases
 
 All backend tests use **JUnit 5 + Spring Boot Test**.
 
@@ -126,11 +126,13 @@ mvn test
 | `VertoShopApplicationTests`         | Ensures full application context loads      |
 
 **Expected Output:**
+
 ✔ All tests should pass → `BUILD SUCCESS`
+<img width="796" height="226" alt="image" src="https://github.com/user-attachments/assets/0ffb97c6-f8af-4a85-964f-702ddf9c7346" />
 
 ---
 
-## 💡 5. Design Choices & Assumptions
+##  5. Design Choices & Assumptions
 
 1. **No Database (per challenge)**
    Products are hardcoded in-memory via `ProductService`.
@@ -154,9 +156,9 @@ mvn test
 
 ---
 
-## 🏗️ 6. System Architecture Overview
+##  6. System Architecture Overview
 
-### 🧠 High-Level Flow
+###  High-Level Flow
 
 1. **Frontend (React)** → Fetches `/api/products` → Displays product grid
 2. User adds items → Cart updates locally and syncs to `localStorage`
@@ -165,9 +167,9 @@ mvn test
 
 ---
 
-## 🧩 7. UML Diagrams
+##  7. UML Diagrams
 
-### 🧱 a. System Architecture Diagram
+###  a. System Architecture Diagram
 
 Shows high-level interaction between User → Frontend → Backend → In-memory data.
 
@@ -212,36 +214,93 @@ Depicts React components (CartContext, APIService) and Spring modules (Controlle
 
 ---
 
-## 🌍 8. Deployment & Scaling (Beyond the Challenge)
+ 
 
-While this fulfills all **Verto ASE Challenge** requirements, here’s how we’d make it production-ready:
+ 
+##  8. Deployment & Scaling (Beyond the Challenge)
 
-### 🚀 Step 1 — Containerization
+While this system fully meets all **Verto ASE Challenge** requirements, I also explored how it can be evolved into a **production-ready and scalable application**.
 
-* Dockerize frontend and backend
-* Use `docker-compose` for combined orchestration
-
-### ☁️ Step 2 — Cloud Deployment
-
-* Backend → AWS Elastic Beanstalk / Render
-* Frontend → Netlify / Vercel
-
-### 🗄️ Step 3 — Database Integration
-
-* Add PostgreSQL or MongoDB for product/order persistence
-* Integrate JPA/Hibernate ORM layer
-
-### ⚖️ Step 4 — Scaling the System
-
-* Horizontal scaling with NGINX or AWS Load Balancer
-* Redis caching for product data
-* CDN for static assets and images
-* JWT-based user authentication
-* CI/CD pipeline via GitHub Actions
+The goal was to design it so that future developers can extend it easily — from local testing to global-scale deployment.
 
 ---
 
-## 🧾 9. Summary
+###  Step 1 — Containerization
+
+The first step toward production is **Dockerizing** both the frontend and backend.  
+Each service can run in its own lightweight container with all dependencies included.
+
+Using **`docker-compose`**, we can orchestrate the React and Spring Boot containers together — ensuring consistency across development, staging, and production environments.
+
+**Benefit:**  
+>  No more “works on my machine” issues — everything runs identically everywhere.
+
+---
+
+###  Step 2 — Cloud Deployment
+
+Once containerized, deployment becomes seamless.
+
+- The **Spring Boot backend** can be deployed on **AWS Elastic Beanstalk**, **Render**, or **Azure App Service** — all of which natively support Java containers.  
+- The **React frontend** can be hosted on **Netlify** or **Vercel** for globally distributed static delivery.  
+- A custom domain can then route both services for a unified, production-grade experience.
+
+**Example:**
+```
+
+api.verto-eshop.com   → Backend (Spring Boot)
+app.verto-eshop.com   → Frontend (React)
+
+```
+
+---
+
+###  Step 3 — Database Integration
+
+In production, instead of hardcoded data, we’d integrate a **persistent database** for product and order management.
+
+**Options include:**
+-  **PostgreSQL** — for relational data consistency  
+-  **MongoDB** — for flexible document-based storage  
+
+The backend would adopt **Spring Data JPA/Hibernate** for ORM (Object Relational Mapping), ensuring reliable entity management, order persistence, and seamless schema evolution.
+
+**Benefit:**  
+> Orders, users, and product data remain durable, queryable, and auditable long-term.
+
+---
+
+###  Step 4 — Scaling the System
+
+To ensure high performance and reliability as traffic grows, we can implement:
+
+**Horizontal Scaling:**  
+- Deploy multiple backend instances behind **NGINX** or an **AWS Application Load Balancer (ALB)**.
+
+**Caching Layer:**  
+- Use **Redis** for caching frequently accessed data (like product catalogs), drastically reducing response times.
+
+**Static Delivery Optimization:**  
+- Serve frontend assets and images through a **CDN** (Cloudflare or AWS CloudFront) for ultra-fast, global content delivery.
+
+**Authentication & Security:**  
+- Implement **JWT-based authentication** for secure user sessions and role-based access control.
+
+**Continuous Integration & Delivery:**  
+- Set up a **CI/CD pipeline using GitHub Actions** to automate build, test, and deployment for both frontend and backend.
+
+**Result:**  
+>  Faster release cycles, minimal downtime, and smooth, automated updates.
+
+ 
+
+ 
+
+Would you like me to now give you the **spoken version** of this section (around 45–60 seconds, for your presentation video), so you can deliver it naturally and confidently when recording?
+
+---
+
+## 9. Summary
 
 | Category             | Implementation                                          |
 | -------------------- | ------------------------------------------------------- |
@@ -252,7 +311,10 @@ While this fulfills all **Verto ASE Challenge** requirements, here’s how we’
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
-**Anuj Gadekar**
+**Anuj Gadekar**  
+| Computer Engineer | Full-Stack Developer | AI & Machine Learning Enthusiast |
+
+
  
